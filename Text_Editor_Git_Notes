@@ -1,1 +1,54 @@
-#   #
+1. **git clone** - Clone a remote repository given the URL.
+2. **git add** - Stage files / add files to the index for subsequent committing.
+3. **git status** - Lists all added, changed and newly created files.
+4. **git reset** - Undo changes / unstage files / go back to commit.
+5. **git restore** - Unstage specific files / undo specific changes.
+6. **git log** - Show commit history.
+7. **git diff** - Visualize changes.
+8. **git commit** - Commit changes after staging them.
+9. **git push** - Push new commits to the remote repository.
+10. **git branch** - List, create, or delete branches.
+11. **git switch** - Switch to another branch.
+12. **git checkout** - Switch branches or restore working tree files.
+13. **git merge** - Merge / join two branches.
+14. **git tag** - Create, list, delete or verify a tag.
+15. **git fetch** - Fetch changes from the remote repository (does not update head).
+16. **git pull** - Update local version with remote version (fetch + merge).
+17. **git rebase** - Rewrite commit history.
+18. **git revert** - Revert existing commits and create new commit with these changes.
+19. **git stash** - Stash changes for later use.
+20. **git clean** - Delete all files not tracked by git.
+
+
+
+
+
+Raw Data:
+
+Purpose of document: guide on lectures with commands used and description
+
+
+
+| Command      | Explanation                                              | Remarks / Common Arguments                                                                                                   | Example(s)                                              |
+|--------------|---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| **git clone**    | Clone a remote repository given the URL                  | Usually pass the repository URL as the only argument                                                                        | `git clone https://github.com/user/repo.git`            |
+| **git add**      | Stage files for committing                              | `-A`: all files<br>`-u`: all tracked files<br>`/path/to/file`: specific file                                                | `git add -A`<br>`git add ReadMe.md`                     |
+| **git status**   | List added, changed, and new files                      | `-s`: short format                                                                                                          | `git status`                                            |
+| **git reset**    | Unstage files or undo changes                           | No args: unstage all<br>`--hard`: delete changes<br>`/path/to/file`: unstage file<br>`--hard commitId`: reset to commit     | `git reset`<br>`git reset test.txt`<br>`git reset --hard 5b331f3` |
+| **git restore**  | Unstage/undo specific changes                           | `--staged`: unstage<br>`/path/to/file`: undo changes since last commit                                                      | `git restore test.txt`<br>`git restore --staged test.txt`|
+| **git log**      | Show commit history                                     | Filtering: `--after`, `--author`, `-n`                                                                                      | `git log --after="2022-1-1"`<br>`git log -n 10`          |
+| **git diff**     | Visualize changes                                       | No args: unstaged<br>`--cached`: staged<br>`/path/to/file`: specific file<br>Compare commits/branches                       | `git diff --cached test.txt`<br>`git diff main development` |
+| **git commit**   | Commit staged changes                                   | `-m`: message<br>`--amend`: edit last commit                                                                                | `git commit -m "Update"`<br>`git commit --amend -m "Fix"`|
+| **git push**     | Push commits to remote                                  | No args: current branch<br>`origin branch`: specific branch<br>`--force`: force push                                        | `git push`<br>`git push origin main`<br>`git push --force`|
+| **git branch**   | List, create, or delete branches                        | No args: list<br>`name`: create<br>`--delete name`: delete                                                                  | `git branch`<br>`git branch development`<br>`git branch --delete development` |
+| **git switch**   | Switch to another branch                                | `name`: switch<br>`-c name`: create & switch<br>`-d commitId`: switch to commit<br>`-m name`: merge & switch                | `git switch development`<br>`git switch -c dev2`         |
+| **git checkout** | Switch branches or restore files                        | `name`: switch<br>`-b name`: create & switch<br>`commitId`: switch to commit<br>`/path/to/file`: restore file               | `git checkout development`<br>`git checkout test.txt`     |
+| **git merge**    | Merge branches                                          | `branch1 branch2`: merge both<br>`branch`: merge into current<br>`-s strategy branch`: set strategy                         | `git merge devel`<br>`git merge -s ours devel`           |
+| **git tag**      | Create, list, delete, or verify tags                    | No args: list<br>`tagname`: create<br>`tagname -a`: annotated<br>`--delete tagname`: delete                                 | `git tag v1.0`<br>`git tag --delete v1.0`                |
+| **git fetch**    | Fetch changes from remote (does not update HEAD)        | No args: current branch<br>`origin`: specific remote<br>`origin branch`: specific branch                                    | `git fetch`<br>`git fetch origin main`                   |
+| **git pull**     | Update local with remote (fetch + merge)                | No args: current branch<br>`origin`: specific remote<br>`origin branch`: specific branch                                    | `git pull`<br>`git pull origin main`                     |
+| **git rebase**   | Rewrite commit history                                  | `-i HEAD~n`: interactive<br>`main`: rebase main<br>`--onto newbase oldbase`: advanced                                       | `git rebase -i HEAD~5`<br>`git rebase main`              |
+| **git revert**   | Revert commits and create new commit                    | `commitId`: revert specific commit                                                    | `git revert 2fc0df`                                      |
+| **git stash**    | Stash changes for later                                 | `list`: show stashes<br>`show`: diff<br>`pop`: apply & remove<br>`apply`: apply only                                       | `git stash`<br>`git stash list`<br>`git stash pop`        |
+| **git clean**    | Delete untracked files                                  | No args: remove all<br>`-n`: dry run<br>`-x`: include ignored<br>`-X`: only ignored                                         | `git clean`<br>`git clean -n`<br>`git clean -x`           |
+
